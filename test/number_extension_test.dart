@@ -1,42 +1,64 @@
-// ignore_for_file: avoid_print
-
 import 'package:dart_intl_extensionz/dart_intl_extensionz.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('toCompactCurrency', () {
+  group('toCompactCurrency', () {
     const num value = 1200000;
-    final String result = value.toCompactCurrency();
-    print(result);
+    test('en_US', () {
+      final String result = value.toCompactCurrency(locale: 'en_US');
+      expect(result, r'$1.2M');
+    });
+
+    test('en_GB', () {
+      final String result = value.toCompactCurrency(locale: 'en_GB');
+      expect(result, '£1.2M');
+    });
+
+    test('de_DE', () {
+      final String result = value.toCompactCurrency(locale: 'de_DE');
+      expect(result, '1,2 Mio. €');
+    });
   });
 
-  test('toSimpleCurrency', () {
+  group('toSimpleCurrency', () {
     const num value = 75.5;
-    final String result = value.toSimpleCurrency();
-    print(result);
+    test('en_US', () {
+      final String result = value.toSimpleCurrency(locale: 'en_US');
+      expect(result, r'$75.50');
+    });
+
+    test('en_GB', () {
+      final String result = value.toSimpleCurrency(locale: 'en_GB');
+      expect(result, '£75.50');
+    });
+
+    test('de_DE', () {
+      final String result = value.toSimpleCurrency(locale: 'de_DE');
+      expect(result, '75,50 €');
+    });
   });
 
   test('toCompact', () {
     const num value = 1200000;
     final String result = value.toCompact();
-    print(result);
+    expect(result, '1.2M');
   });
 
   test('toDecimalPattern', () {
     const num value = 12.123;
     final String result = value.toDecimalPattern();
-    print(result);
+    expect(result, '12.123');
   });
 
   test('toPercentPattern', () {
     const num value = 0.75;
     final String result = value.toPercentPattern();
-    print(result);
+    expect(result, '75%');
   });
 
   test('toScientificPattern', () {
     const num value = 1200000;
     final String result = value.toScientificPattern();
-    print(result);
+    expect(result, '1E6');
   });
 }

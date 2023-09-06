@@ -2,10 +2,12 @@ part of dart_intl_extensionz;
 
 extension StringExtension on String? {
   /// Attempt to parse `this` to a [DateTime]
-  /// using the anticipated format,
-  /// treating it as being in the local timezone.
+  /// using the anticipated [pattern].
+  ///
+  /// The default [pattern] matches the
+  /// format produced when stringifying a [DateTime].
   DateTime? toDateTime({
-    String? pattern = 'y-M-d HH:mm:ss.SSS',
+    String? pattern = 'YYYY-MM-DDTHH:mm:ss.SSSSSSS',
     String? locale,
     bool isUtc = false,
   }) {
@@ -14,15 +16,20 @@ extension StringExtension on String? {
     }
 
     try {
-      return DateFormat(pattern, locale ?? Platform.localeName)
-          .parseLoose(this!, isUtc);
+      return DateFormat(
+        pattern,
+        locale ?? Platform.localeName,
+      ).parseLoose(this!, isUtc);
     } on FormatException catch (_) {
       return DateTime.tryParse(this!);
     }
   }
 
   /// Attempt to parse `this` to a [Duration]
-  /// using the anticipated format.
+  /// using the anticipated [pattern].
+  ///
+  /// The default [pattern] matches the
+  /// format produced when stringifying a [Duration].
   Duration? toDuration({
     String pattern = 'HH:mm:ss.SSSSSS',
     String? locale,
