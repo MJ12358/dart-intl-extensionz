@@ -1,0 +1,20 @@
+name: dart_intl_extensionz
+description: A set of extensions for the "Intl" package.
+version: 0.0.1
+repository: https://github.com/mj12358/dart-intl-extensionz
+funding:
+  - https://www.buymeacoffee.com/mj12358
+topics:
+  - dart
+  - extension
+  - intl
+
+environment:
+  sdk: ">=2.19.2 <4.0.0"
+
+dependencies:
+  intl: ^0.18.1
+
+dev_dependencies:
+  dart_lintz: ^1.2.0
+  test: ^1.21.0
