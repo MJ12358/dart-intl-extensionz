@@ -1,5 +1,9 @@
 # Dart Intl Extensionz
 
+## 0.0.3
+
+- Discontinued in favor of another package (please see readme).
+
 ## 0.0.2
 
 - Fix description length.

@@ -1,6 +1,6 @@
 name: dart_intl_extensionz
 description: A set of extensions for the "Intl" package for parsing and formatting dates and times.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/mj12358/dart-intl-extensionz
 funding:
   - https://www.buymeacoffee.com/mj12358
